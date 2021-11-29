@@ -14,8 +14,8 @@ public class Main {
         executorService.submit(() -> printNumberSquare(4));
         executorService.submit(() -> printNumberSquare(4));
 
-//        executorService.shutdown();
-        executorService.shutdownNow();
+        executorService.shutdown();
+//        executorService.shutdownNow();
 //        executorService.awaitTermination()
 //        executorService.awaitTermination(2, TimeUnit.SECONDS);
 //        executorService.submit(() -> System.out.println("ABCD"));
