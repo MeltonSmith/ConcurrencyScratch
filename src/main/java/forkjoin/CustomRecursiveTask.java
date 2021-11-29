@@ -33,7 +33,6 @@ public class CustomRecursiveTask extends RecursiveTask<Integer> {
     }
 
     private Collection<CustomRecursiveTask> createSubtasks() {
-        System.out.println("Dividing");
         List<CustomRecursiveTask> dividedTasks = new ArrayList<>();
         dividedTasks.add(new CustomRecursiveTask(integers.subList(0, integers.size()/2)));
         dividedTasks.add(new CustomRecursiveTask(integers.subList(integers.size()/2+1, integers.size()-1)));
@@ -41,6 +40,11 @@ public class CustomRecursiveTask extends RecursiveTask<Integer> {
     }
 
     private Integer processing(List<Integer> integersInput) {
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return integersInput.stream()
 //                .filter(a -> a > 10 && a < 27)
                 .map(a -> a * 10)

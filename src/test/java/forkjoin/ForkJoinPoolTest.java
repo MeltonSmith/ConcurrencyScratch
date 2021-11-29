@@ -1,5 +1,6 @@
 package forkjoin;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -21,15 +22,22 @@ public class ForkJoinPoolTest {
         ForkJoinPool forkJoinPool = ForkJoinPool.commonPool();
         var collect = new Random()
                 .ints(1, 1000)
-                .limit(1000)
+                .limit(10000)
                 .boxed()
                 .collect(Collectors.toList());
+
+
 
         ForkJoinTask<Integer> submit = forkJoinPool.submit(new CustomRecursiveTask(collect));
 
         System.out.println("processing");
         while (!submit.isDone()){
+            Thread.sleep(1000);
 
+            System.out.println(forkJoinPool.getQueuedTaskCount());
+            System.out.println(forkJoinPool.getParallelism());
+            System.out.println(forkJoinPool.getActiveThreadCount());
+            System.out.println(forkJoinPool.getRunningThreadCount());
         }
 
         System.out.println(submit.get());
