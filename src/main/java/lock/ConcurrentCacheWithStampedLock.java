@@ -22,7 +22,7 @@ public class ConcurrentCacheWithStampedLock {
         }
     }
 
-    public Integer get(String key) throws InterruptedException {
+    public Integer get(String key) {
         long stamp = lock.readLock();
         try {
             return map.get(key);
