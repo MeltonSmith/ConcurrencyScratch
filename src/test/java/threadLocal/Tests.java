@@ -9,7 +9,7 @@ import org.junit.Test;
 public class Tests {
 
     @Test
-    public void testWith3Thread() throws InterruptedException {
+    public void testWith4Thread() throws InterruptedException {
         ThreadLocalWithUserContext firstUser
                 = new ThreadLocalWithUserContext(1);
         ThreadLocalWithUserContext secondUser
