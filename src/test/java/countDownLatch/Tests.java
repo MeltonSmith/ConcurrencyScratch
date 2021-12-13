@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * Created by: Ian_Rakhmatullin
  * Date: 15.10.2021
- * NOTE
+ * NOTE2
  */
 public class Tests {
 
